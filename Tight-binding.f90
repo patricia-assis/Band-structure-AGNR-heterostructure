@@ -13,9 +13,7 @@ double precision rwork(3*n_atoms-2), w(n_atoms)
 character*256 file_name,file_name2,file_name3
 
 lda=n_atoms
-  
 lwork=2*n_atoms-1
-
 t = -3.0d0
          
 do jj=1, n_atoms
@@ -36,7 +34,6 @@ v3 = t*exp(zi*k(ii)*acc2/2)
 write(unit = file_name, fmt="('.\Eigenvalues_',    '_',  i4.4,i2.2,i2.2,  '.dat')") n, n_lowercase, m
 open(unit = 10, file = file_name, status = "unknown", action = "write")
 call Hamiltonian_m2(n_atoms,n1,n2,n3,harm,hzh,v1,v2,v3)
-!call glue2(n_atoms,n1,n2,n3,harm,hzh,v1,v2,v3)
 
 else if (m==3) then 
 v1 = t*exp(-zi*k(ii)*acc3)
@@ -51,6 +48,7 @@ else
 v1 = t*exp(-zi*k(ii)*acc4)
 v2 = t*exp(-zi*k(ii)*acc4/2)
 v3 = t*exp(zi*k(ii)*acc4/2)
+
 write(unit = file_name, fmt="('.\Eigenvalues_',    '_',  i4.4,i2.2,i2.2,  '.dat')") n, n_lowercase, m
 open(unit = 10, file = file_name, status = "unknown", action = "write")
 call Hamiltonian_m4(n_atoms,n1,n2,n3,harm,hzh,v1,v2,v3,n)
@@ -63,9 +61,6 @@ if(info.gt.0)then
 write(*,*)'The algorithm failed to compute eigenvalues.'
 stop
 end if
-
 end do
-
-
-end subroutine
-        
+!
+end subroutine       
