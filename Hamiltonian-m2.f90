@@ -1,10 +1,11 @@
-subroutine Hamiltonian_m2(n_atoms,b1,b2,b3,z,h,d11,d12,d13)  
+subroutine Hamiltonian_m2(n_atoms,b1,b2,b3,z,h,d11,d12,d13,n_lowercase,m) 
 use module_Data
 implicit none
 integer n_atoms,  b1, b2, b3
 complex*16 d11,d12,d13,d14
 complex*16 z(n_atoms,n_atoms), h(n_atoms,n_atoms)
 integer m1,m2,m3, x, v,x1
+integer n_lowercase, m ! N-AGNR-I(n_lowercase,m)
 !******************************************************************!
 !******************************************************************!
 do  i = 1,b2-1,2
