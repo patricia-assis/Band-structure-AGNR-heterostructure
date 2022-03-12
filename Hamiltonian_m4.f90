@@ -1,4 +1,4 @@
-subroutine Hamiltonian_m4(n_atoms,b1,b2,b3,z,h,d11,d12,d13,n)    
+subroutine Hamiltonian_m4(n_atoms,b1,b2,b3,z,h,d11,d12,d13,n,n_lowercase,m)
 use module_Data    
 implicit none      
 integer n_atoms     
@@ -9,7 +9,8 @@ integer m1, m2, m3, m4, m5, m6, m7, m8
 integer f1, f2, f3, f4, f5     
 integer x     
 integer n, v
-character*256 file_name,file_name2,file_name3        
+character*256 file_name,file_name2,file_name3   
+integer n_lowercase, m ! N-AGNR-I(n_lowercase,m)
 !******************************************************************!
 !******************************************************************!
 do  i = 1,b1-1,2
